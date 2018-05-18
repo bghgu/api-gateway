@@ -1,0 +1,47 @@
+#zuul:
+#  routes:
+#    서비스id:
+#      path: /경로/**
+#      url: 포워드 될 경로
+#zuul:
+#  routes:
+#    contents-service:
+#      path: /contents/**
+#      url: 127.0.0.1:8080/contents/
+
+zuul:
+  forceOriginalQueryStringEncoding: true
+  prefix: /api/v1
+  routes:
+    relationComponents-follow:
+      path: /users/*/follow
+      url: http://106.10.43.59:3389/api/v1/relation
+    relationComponents-following:
+      path: /users/*/following
+      url: http://106.10.43.59:3389/api/v1/relation
+    relationComponents-followingCount:
+      path: /users/*/following/count
+      url: http://106.10.43.59:3389/api/v1/relation
+    relationComponents-follower:
+      path: /users/*/follower
+      url: http://106.10.43.59:3389/api/v1/relation
+    relationComponents-followerCount:
+      path: /users/*/follower/count
+      url: http://106.10.43.59:3389/api/v1/relation
+    relationComponents-feeds:
+      path: /users/*/feeds
+      url: http://106.10.43.59:3389/api/v1/relation
+
+    contentComponents:
+      path: /contents/*
+      url: http://106.10.43.63:8080/contents
+    contentComponents-post:
+      path: /contents
+      url: http://106.10.43.63:8080
+    contentComponent-author:
+      path: /users/*/contents
+      url: http://106.10.43.63:8080/users
+
+    relationComponents-swagger:
+      path: /relations/*
+      url: http://13.209.36.175:4000/api-docs
