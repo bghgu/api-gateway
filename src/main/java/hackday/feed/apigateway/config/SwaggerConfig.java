@@ -28,6 +28,10 @@ public class SwaggerConfig implements SwaggerResourcesProvider {
                 UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS, false, true, 60000L);
     }
 
+    /**
+     *
+     * @return sdsd
+     */
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
